@@ -1,0 +1,57 @@
+{
+  "name": "transcription-app",
+  "version": "1.0.0",
+  "description": "Video call transcription app with LLM integration",
+  "main": "dist/main/main.js",
+  "scripts": {
+    "build": "rimraf dist && tsc && webpack --config webpack.config.js",
+    "watch": "tsc -w",
+    "start": "npm run build && electron .",
+    "dev": "concurrently \"npm run watch\" \"nodemon --exec electron . --watch dist/main/main.js\"",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
+  },
+  "keywords": ["electron", "transcription", "ai", "llm"],
+  "author": "",
+  "license": "MIT",
+  "build": {
+    "appId": "com.transcription.app",
+    "productName": "Transcription App",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "node_modules/**/*"
+    ]
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.10",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "concurrently": "^9.1.2",
+    "electron": "^35.0.1",
+    "electron-builder": "^25.1.8",
+    "html-webpack-plugin": "^5.6.3",
+    "nodemon": "^3.1.9",
+    "rimraf": "^6.0.1",
+    "ts-loader": "^9.5.2",
+    "typescript": "^5.8.2",
+    "wait-on": "^8.0.2",
+    "webpack": "^5.98.0",
+    "webpack-cli": "^6.0.1"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.39.0",
+    "@emotion/react": "^11.14.0",
+    "@emotion/styled": "^11.14.0",
+    "@huggingface/inference": "^3.5.1",
+    "axios": "^1.8.2",
+    "electron-store": "^10.0.1",
+    "ollama": "^0.5.14",
+    "openai": "^4.86.2",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-router-dom": "^7.3.0"
+  }
+}
